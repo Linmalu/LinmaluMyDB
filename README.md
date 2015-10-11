@@ -4,7 +4,7 @@ C# Dababase Management
 개발자 : Linmalu(린마루)
 블로그 : http://blog.linmalu.com/
 
-#소개
+###소개
 - DB를 관리하는 프로그램입니다.
 - 현제는 MySQL만 가능하며 추후 다른 DB도 지원할 예정입니다.
 - 현제 베타버전입니다.
