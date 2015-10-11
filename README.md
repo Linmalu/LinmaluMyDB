@@ -1,7 +1,7 @@
 # LinmaluMyDB
 C# Dababase Management
 
-개발자 : Linmalu(린마루)
+개발자 : Linmalu(린마루) 
 블로그 : http://blog.linmalu.com/
 
 ###소개
