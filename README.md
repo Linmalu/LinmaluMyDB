@@ -1,8 +1,8 @@
 # LinmaluMyDB
 C# Dababase Management
 
-개발자 : Linmalu(린마루) 
-블로그 : http://blog.linmalu.com/
+-개발자 : Linmalu(린마루)
+-블로그 : http://blog.linmalu.com/
 
 ###소개
 - DB를 관리하는 프로그램입니다.
