@@ -13,9 +13,6 @@ namespace LinmaluMyDB
         {
             InitializeComponent();
             this.main = main;
-            //textBox1.Text = "root";
-            //textBox2.Text = "h0t$ixs";
-            //textBox3.Text = "192.168.1.2";
         }
 
         private delegate void SetRun();
