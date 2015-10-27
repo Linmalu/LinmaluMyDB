@@ -93,6 +93,7 @@
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(150, 23);
             this.comboBox1.TabIndex = 4;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // textBox3
             // 
@@ -191,7 +192,6 @@
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "로그인";
-            this.Shown += new System.EventHandler(this.Login_Shown);
             this.ResumeLayout(false);
             this.PerformLayout();
 

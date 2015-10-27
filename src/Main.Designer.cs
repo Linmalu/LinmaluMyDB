@@ -32,6 +32,9 @@
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.menuLogin = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuLogout = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuRefresh = new System.Windows.Forms.ToolStripMenuItem();
+            this.Linmalu = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.menuInsert = new System.Windows.Forms.ToolStripMenuItem();
             this.menuUpdate = new System.Windows.Forms.ToolStripMenuItem();
@@ -49,9 +52,6 @@
             this.menuDBDelete = new System.Windows.Forms.ToolStripMenuItem();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.menuLogout = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuRefresh = new System.Windows.Forms.ToolStripMenuItem();
-            this.Linmalu = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -97,6 +97,27 @@
             this.menuLogin.Size = new System.Drawing.Size(55, 20);
             this.menuLogin.Text = "로그인";
             this.menuLogin.Click += new System.EventHandler(this.menuLogin_Click);
+            // 
+            // menuLogout
+            // 
+            this.menuLogout.Name = "menuLogout";
+            this.menuLogout.Size = new System.Drawing.Size(67, 20);
+            this.menuLogout.Text = "로그아웃";
+            this.menuLogout.Click += new System.EventHandler(this.menuLogout_Click);
+            // 
+            // menuRefresh
+            // 
+            this.menuRefresh.Name = "menuRefresh";
+            this.menuRefresh.Size = new System.Drawing.Size(67, 20);
+            this.menuRefresh.Text = "새로고침";
+            this.menuRefresh.Click += new System.EventHandler(this.menuRefresh_Click);
+            // 
+            // Linmalu
+            // 
+            this.Linmalu.Name = "Linmalu";
+            this.Linmalu.Size = new System.Drawing.Size(141, 20);
+            this.Linmalu.Text = "제작 : Linmalu(린마루)";
+            this.Linmalu.Click += new System.EventHandler(this.Linmalu_Click);
             // 
             // contextMenuStrip1
             // 
@@ -201,7 +222,7 @@
             this.listView2.HideSelection = false;
             this.listView2.Location = new System.Drawing.Point(-1, -1);
             this.listView2.Name = "listView2";
-            this.listView2.Size = new System.Drawing.Size(737, 465);
+            this.listView2.Size = new System.Drawing.Size(580, 410);
             this.listView2.TabIndex = 10;
             this.listView2.UseCompatibleStateImageBehavior = false;
             this.listView2.View = System.Windows.Forms.View.Details;
@@ -228,7 +249,7 @@
             this.dataGridView1.Location = new System.Drawing.Point(-1, -1);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 23;
-            this.dataGridView1.Size = new System.Drawing.Size(737, 465);
+            this.dataGridView1.Size = new System.Drawing.Size(580, 410);
             this.dataGridView1.TabIndex = 0;
             // 
             // contextMenuStrip2
@@ -284,28 +305,8 @@
             this.dataGridView2.Location = new System.Drawing.Point(-1, -1);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.RowTemplate.Height = 23;
-            this.dataGridView2.Size = new System.Drawing.Size(737, 465);
+            this.dataGridView2.Size = new System.Drawing.Size(580, 410);
             this.dataGridView2.TabIndex = 1;
-            // 
-            // menuLogout
-            // 
-            this.menuLogout.Name = "menuLogout";
-            this.menuLogout.Size = new System.Drawing.Size(67, 20);
-            this.menuLogout.Text = "로그아웃";
-            this.menuLogout.Click += new System.EventHandler(this.menuLogout_Click);
-            // 
-            // menuRefresh
-            // 
-            this.menuRefresh.Name = "menuRefresh";
-            this.menuRefresh.Size = new System.Drawing.Size(67, 20);
-            this.menuRefresh.Text = "새로고침";
-            this.menuRefresh.Click += new System.EventHandler(this.menuRefresh_Click);
-            // 
-            // Linmalu
-            // 
-            this.Linmalu.Name = "Linmalu";
-            this.Linmalu.Size = new System.Drawing.Size(141, 20);
-            this.Linmalu.Text = "제작 : Linmalu(린마루)";
             // 
             // Main
             // 
