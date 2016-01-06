@@ -8,11 +8,11 @@ namespace LinmaluMyDB
 {
     public enum LinmaluDBType { MySQL, MsSQL };
 
-    public class LinmaluDB
+    public abstract class LinmaluDB
     {
-        public static LinmaluDB createDB(LinmaluDBType dt, string server, string port, string uid, string pwd)
+        public static LinmaluDB createDB(LinmaluDBType db, string server, string port, string uid, string pwd)
         {
-            switch (dt)
+            switch (db)
             {
                 case LinmaluDBType.MySQL:
                     return new LinmaluMySQL(server, port, uid, pwd);
@@ -25,57 +25,27 @@ namespace LinmaluMyDB
 
         protected string connection;
 
-        public LinmaluDB(string server, string port, string uid, string pwd)
-        {
-        }
-        public virtual List<string> showDatabases()
-        {
-            return new List<string>();
-        }
-        public virtual List<string> showTables(string database)
-        {
-            return new List<string>();
-        }
-        public virtual List<string> showColumnsType(string database, string table)
-        {
-            return new List<string>();
-        }
-        public virtual List<List<string>> showColumns(string database, string table)
-        {
-            return new List<List<string>>();
-        }
-        public virtual List<List<string>> showDatas(string database, string table, string[] columns)
-        {
-            return new List<List<string>>();
-        }
-        public virtual string countDatas(string database, string table, string sub)
-        {
-            return "0";
-        }
-        public virtual int insertDatas(string database, string table, string[] datas)
-        {
-            return 0;
-        }
-        public virtual int updateDatas(string database, string table, Dictionary<string, string> map, string sub)
-        {
-            return 0;
-        }
-        public virtual int deleteDatas(string database, string table, string sub)
-        {
-            return 0;
-        }
+        public abstract List<string> showDatabases();
+        public abstract List<string> showTables(string database);
+        public abstract List<string> showColumnsType(string database, string table);
+        public abstract List<List<string>> showColumns(string database, string table);
+        public abstract List<List<string>> showDatas(string database, string table, string[] columns);
+        public abstract string countDatas(string database, string table, string sub);
+        public abstract int insertDatas(string database, string table, string[] datas);
+        public abstract int updateDatas(string database, string table, Dictionary<string, string> map, string sub);
+        public abstract int deleteDatas(string database, string table, string sub);
     }
 
     //MySQL Class
     public class LinmaluMySQL : LinmaluDB
     {
-        public LinmaluMySQL(string server, string port, string uid, string pwd) : base(server, port, uid, pwd)
+        public LinmaluMySQL(string server, string port, string uid, string pwd)
         {
             connection = "Server = " + server + "; Port = " + (port == "" ? "3306" : port) + "; UID = " + uid + "; PWD = " + pwd + "; Charset = utf8;";
         }
         public override List<string> showDatabases()
         {
-            List<string> list = base.showDatabases();
+            List<string> list = new List<string>();
             using(MySqlConnection db = new MySqlConnection(connection))
             {
                 db.Open();
@@ -94,7 +64,7 @@ namespace LinmaluMyDB
         }
         public override List<string> showTables(string database)
         {
-            List<string> list = base.showDatabases();
+            List<string> list = new List<string>();
             using(MySqlConnection db = new MySqlConnection(connection + "Database = " + database + ";"))
             {
                 db.Open();
@@ -113,7 +83,7 @@ namespace LinmaluMyDB
         }
         public override List<string> showColumnsType(string database, string table)
         {
-            List<string> list = base.showColumnsType(database, table);
+            List<string> list = new List<string>();
             using(MySqlConnection db = new MySqlConnection(connection + "Database = " + database + ";"))
             {
                 db.Open();
@@ -136,7 +106,7 @@ namespace LinmaluMyDB
         }
         public override List<List<string>> showColumns(string database, string table)
         {
-            List<List<string>> list = base.showColumns(database, table);
+            List<List<string>> list = new List<List<string>>();
             using(MySqlConnection db = new MySqlConnection(connection + "Database = " + database + ";"))
             {
                 db.Open();
@@ -160,7 +130,7 @@ namespace LinmaluMyDB
         }
         public override List<List<string>> showDatas(string database, string table, string[] columns)
         {
-            List<List<string>> list = base.showDatas(database, table, columns);
+            List<List<string>> list = new List<List<string>>();
             using(MySqlConnection db = new MySqlConnection(connection + "Database = " + database + ";"))
             {
                 db.Open();
@@ -248,13 +218,13 @@ namespace LinmaluMyDB
     //MsSQL Class
     public class LinmaluMsSQL : LinmaluDB
     {
-        public LinmaluMsSQL(string server, string port, string uid, string pwd) : base(server, port, uid, pwd)
+        public LinmaluMsSQL(string server, string port, string uid, string pwd)
         {
             connection = "Server = " + server + "," + (port == "" ? "1433" : port) + "; UID = " + uid + "; PWD = " + pwd + ";";
         }
         public override List<string> showDatabases()
         {
-            List<string> list = base.showDatabases();
+            List<string> list = new List<string>();
             using(SqlConnection db = new SqlConnection(connection))
             {
                 db.Open();
@@ -273,7 +243,7 @@ namespace LinmaluMyDB
         }
         public override List<string> showTables(string database)
         {
-            List<string> list = base.showDatabases();
+            List<string> list = new List<string>();
             using(SqlConnection db = new SqlConnection(connection + "Database = " + database + ";"))
             {
                 db.Open();
@@ -292,7 +262,7 @@ namespace LinmaluMyDB
         }
         public override List<string> showColumnsType(string database, string table)
         {
-            List<string> list = base.showColumnsType(database, table);
+            List<string> list = new List<string>();
             using(SqlConnection db = new SqlConnection(connection + "Database = " + database + ";"))
             {
                 db.Open();
@@ -315,7 +285,7 @@ namespace LinmaluMyDB
         }
         public override List<List<string>> showColumns(string database, string table)
         {
-            List<List<string>> list = base.showColumns(database, table);
+            List<List<string>> list = new List<List<string>>();
             using(SqlConnection db = new SqlConnection(connection + "Database = " + database + ";"))
             {
                 db.Open();
@@ -339,7 +309,7 @@ namespace LinmaluMyDB
         }
         public override List<List<string>> showDatas(string database, string table, string[] columns)
         {
-            List<List<string>> list = base.showDatas(database, table, columns);
+            List<List<string>> list = new List<List<string>>();
             using(SqlConnection db = new SqlConnection(connection + "Database = " + database + ";"))
             {
                 db.Open();

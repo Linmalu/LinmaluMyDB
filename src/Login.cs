@@ -22,11 +22,11 @@ namespace LinmaluMyDB
 
         private delegate void SetRun();
 
-        private void run(LinmaluDBType dt)
+        private void run(LinmaluDBType db)
         {
             try
             {
-                main.db = LinmaluDB.createDB(dt, textBox3.Text, textBox4.Text, textBox1.Text, textBox2.Text);
+                main.db = LinmaluDB.createDB(db, textBox3.Text, textBox4.Text, textBox1.Text, textBox2.Text);
                 SetRun d = () =>
                 {
                     Close();
@@ -62,8 +62,8 @@ namespace LinmaluMyDB
             time = 0;
             timer1_Tick(null, null);
             timer1.Start();
-            LinmaluDBType dt = (LinmaluDBType)comboBox1.SelectedItem;
-            Thread t = new Thread(() => run(dt));
+            LinmaluDBType db = (LinmaluDBType)comboBox1.SelectedItem;
+            Thread t = new Thread(() => run(db));
             t.IsBackground = true;
             t.Start();
         }
